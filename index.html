@@ -81,6 +81,9 @@ body{
 .chip-level{background:#e8f4fa;color:var(--blue)}
 .c-title{font-size:16.5px;font-weight:800;line-height:1.4;word-break:keep-all}
 .c-desc{font-size:13.5px;color:#5b6b85;line-height:1.6;margin-top:6px;word-break:keep-all}
+a.course{display:block;text-decoration:none;color:inherit;cursor:pointer}
+a.course:hover{border-color:var(--blue);box-shadow:0 6px 18px rgba(43,149,195,.18)}
+.c-link{margin-top:10px;font-size:13.5px;font-weight:800;color:var(--blue)}
 .actions{margin-top:24px;display:flex;flex-direction:column;gap:10px}
 .btn-outline{background:var(--white);color:var(--navy);border:2px solid var(--navy)}
 .btn-pink{background:var(--pink);color:var(--navy)}
@@ -142,20 +145,19 @@ body{
         <div class="actions">
           <a class="btn btn-primary" id="link-kmooc" href="https://www.kmooc.kr" target="_blank" rel="noopener">K-MOOC에서 수강하러 가기</a>
           <button class="btn btn-pink" onclick="shareResult()">친구에게 테스트 공유하기</button>
-          <a class="btn btn-outline" id="link-insta" href="https://www.instagram.com/cauelearning/" target="_blank" rel="noopener">인스타그램 팔로우하기</a>
+          <a class="btn btn-outline" id="link-insta" href="https://www.instagram.com/" target="_blank" rel="noopener">인스타그램 팔로우하고 이벤트 참여 🎁</a>
           <button class="btn btn-sub" onclick="resetQuiz()">테스트 다시하기</button>
         </div>
       </div>
     </div>
-    <p class="footer">중앙대학교 K-MOOC X MOOCAU<br>본 테스트는 재미로 즐겨 주세요</p>
+    <p class="footer">중앙대학교 K-MOOC 홍보단 · 푸앙이와 함께하는 배움<br>본 테스트는 재미로 즐겨 주세요</p>
   </section>
 
 </div>
 <div class="toast" id="toast">링크가 복사되었어요!</div>
 
 <script>
-/* ▼ 운영 시 여기 두 줄만 실제 주소로 바꿔 주세요 */
-const KMOOC_URL = "https://www.kmooc.kr";
+const KMOOC_URL = "https://www.kmooc.kr/";
 const INSTA_URL = "https://www.instagram.com/cauelearning/";
 
 const IMGS = {
@@ -170,7 +172,7 @@ const QUESTIONS = [
    ["체육관 가서 개운하게 운동 🏃","WELL"],
    ["노트북 켜고 요즘 배우는 것 만지작 💻","AI"]]},
  {q:"유튜브 알고리즘에 뜬 영상,\n뭘 클릭할래?", opts:[
-   ["『행복이란 무엇인가 5분 철학 강의』","PHIL"],
+   ["『행복이란 무엇인가』 10분 철학 강의","PHIL"],
    ["『AI는 어떻게 말을 배울까?』","AI"],
    ["『코인 사기, 그 돈을 추적해 봤다』","DATA"],
    ["『몰입이 잘 되는 공부법의 과학』","EDU"]]},
@@ -226,7 +228,7 @@ const RESULTS = {
  AI:{
   name:"프론티어 푸앙", img:"study", tagline:"미래를 먼저 사는 AI 탐험가",
   good:"셜록 푸앙", bad:"호모 루덴스 푸앙",
-  desc:"새로운 기술 소식에 심장이 뛰는 당신. 남들이 'AI 신기하다'로 끝낼 때, 당신은 '어떻게 작동하지?'까지 파고듭니다. 그 호기심을 진짜 실력으로 바꿔 줄 강의를 준비했어요. 불태워 봅시다!",
+  desc:"새로운 기술 소식에 심장이 뛰는 당신. 남들이 'AI 신기하다'로 끝낼 때, 당신은 '어떻게 작동하지?'까지 파고듭니다. 그 호기심을 진짜 실력으로 바꿔 줄 강의를 준비했어요. 불태워 봅시다 🔥",
   courses:[
    {main:1,title:"딥러닝 기반 자연어처리",field:"공학",level:"전공심화",desc:"Transformer부터 LLM, RLHF까지 — AI가 언어를 이해하고 생성하는 원리를 정면 돌파하는 강좌."},
    {main:0,title:"멀티모달 인공지능의 이해와 학습",field:"공학",level:"심화",desc:"텍스트를 넘어 이미지·소리까지, AI는 어떻게 여러 감각을 동시에 이해할까?"}
@@ -255,9 +257,26 @@ const RESULTS = {
   courses:[
    {main:1,title:"AI로 수업 혁신하기",field:"교육",level:"전공심화",desc:"AI로 학습자의 참여를 끌어내고 수업의 질을 바꾸는 전략 — 실제 적용 사례 중심의 강좌."},
    {main:0,title:"AI 기반 학습 콘텐츠 개발",field:"교육",level:"전공심화",desc:"챗봇·자동 피드백 등 AI 도구로 콘텐츠를 직접 만들어 보는 실습형 강의."},
-   {main:0,title:"AI로 설계하는 수업의 미래",field:"교육",level:"전공심화",desc:"미래 학습 환경에 맞는 수업 설계, 디지털 시대 교사의 핵심 역량."}
+   {main:0,title:"AI로 설계하는 수업의 미래",field:"교육",level:"전공심화",desc:"미래 학습 환경에 맞는 수업 설계, 디지털 시대 교사의 핵심 역량."},
+   {main:0,title:"AI 기반 교수설계 포트폴리오 멘토링",field:"교육",level:"전공심화",desc:"실시간 1:N 멘토링으로 나만의 교수설계 포트폴리오를 완성하는 심화 과정."}
   ]}
 };
+
+const COURSE_URLS = {
+ "일상의 철학, 행복을 말하다":"https://www.kmooc.kr/view/course/detail/19999",
+ "게임 인문학":"https://www.kmooc.kr/view/course/detail/20000",
+ "웰빙건강 다이어트":"https://www.kmooc.kr/view/course/detail/19992",
+ "딥러닝 기반 자연어처리":"https://www.kmooc.kr/view/course/detail/19991",
+ "멀티모달 인공지능의 이해와 학습":"https://www.kmooc.kr/view/course/detail/20002",
+ "가상자산 추적과 분석":"https://www.kmooc.kr/view/course/detail/20001",
+ "데이터 과학의 EDA와 시각화":"https://www.kmooc.kr/view/course/detail/19993",
+ "첨단전략산업과 기술보호":"https://www.kmooc.kr/view/course/detail/19994",
+ "AI 기반 교수설계 포트폴리오 멘토링":"https://www.kmooc.kr/view/course/detail/19998",
+ "AI로 수업 혁신하기":"https://www.kmooc.kr/view/course/detail/19997",
+ "AI 기반 학습 콘텐츠 개발":"https://www.kmooc.kr/view/course/detail/19996",
+ "AI로 설계하는 수업의 미래":"https://www.kmooc.kr/view/course/detail/19995"
+};
+Object.values(RESULTS).forEach(r=>r.courses.forEach(c=>{ if(COURSE_URLS[c.title]) c.url=COURSE_URLS[c.title]; }));
 
 let idx=0, scores={};
 function startQuiz(){ idx=0; scores={PHIL:0,CULT:0,AI:0,DATA:0,WELL:0,EDU:0}; show('screen-quiz'); render(); }
@@ -293,10 +312,13 @@ function showResult(){
   document.getElementById('r-bad').textContent=r.bad;
   const box=document.getElementById('r-courses'); box.innerHTML='';
   r.courses.forEach(c=>{
-    const d=document.createElement('div'); d.className='course'+(c.main?' main':'');
+    const d=document.createElement(c.url?'a':'div');
+    d.className='course'+(c.main?' main':'');
+    if(c.url){ d.href=c.url; d.target='_blank'; d.rel='noopener'; }
     d.innerHTML='<div class="c-chips">'+(c.main?'<span class="chip chip-best">푸앙이 PICK</span>':'')
       +'<span class="chip chip-field">'+c.field+'</span><span class="chip chip-level">'+c.level+'</span></div>'
-      +'<div class="c-title">'+c.title+'</div><div class="c-desc">'+c.desc+'</div>';
+      +'<div class="c-title">'+c.title+'</div><div class="c-desc">'+c.desc+'</div>'
+      +(c.url?'<div class="c-link">강의 보러 가기 →</div>':'');
     box.appendChild(d);
   });
   show('screen-result'); window.scrollTo({top:0});
@@ -307,7 +329,6 @@ function show(id){
   document.getElementById(id).classList.add('active');
 }
 function shareResult(){
-  // file://로 열었을 때는 웹 공유 API에 주소를 넘기면 안 됨(브라우저 오류 유발)
   const isWeb = location.protocol==='http:'||location.protocol==='https:';
   const text = '나에게 딱 맞는 K-MOOC 강의는? 푸앙이의 1분 테스트!';
   const payload = isWeb ? text+'\n'+location.href : text;
